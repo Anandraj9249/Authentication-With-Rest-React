@@ -13,7 +13,7 @@ class RegisterView(APIView):
     def post(self , request):
         try:
             serializer = UserSerializer(data=request.data)
-            if serializer.is_valid():
+            if not serializer.is_valid():
                 return Response({
                     'status': 403,
                     'errors': serializer.errors

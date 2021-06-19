@@ -35,7 +35,7 @@ def send_email_token(sender , instance , created , **kwargs):
     if created:
         try:
             subject = "Your email needs to be verfied"
-            message = f'Hi click on link to verify email {uuid.uuid4()}'
+            message = f'Hi click on link to verify email:http://127.0.0.1:8000/{uuid.uuid4()}'
             email_from = settings.EMAIL_HOST_USER
             recipient_list = [instance.email]
             send_mail(subject , message , email_from , recipient_list )
